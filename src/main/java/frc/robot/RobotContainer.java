@@ -10,12 +10,16 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+//import frc.robot.commands.SensorReadout;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.DistanceSensor;
+import frc.robot.subsystems.LineSensor;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.xrp.XRPOnBoardIO;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -32,6 +36,13 @@ public class RobotContainer {
   private final Drivetrain m_drivetrain = new Drivetrain();
   private final XRPOnBoardIO m_onboardIO = new XRPOnBoardIO();
   private final Arm m_arm = new Arm();
+  private final LineSensor m_LineSensor = new LineSensor();
+  private final DistanceSensor m_DistanceSensor = new DistanceSensor();
+
+  
+  // CODE ADDED - SHOW KYLE
+  //private final DistanceSensor distanceSensor = new DistanceSensor();
+  // private final SensorReadout sensorReadout = new SensorReadout();
 
   // Assumes a gamepad plugged into channel 0
   private final XboxController m_controller = new XboxController(0);
@@ -43,6 +54,12 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    // CODE ADDED and does NOT work - SHOW KYLE 
+    // Schedule the SensorReadout command to run repeatedly
+    //CommandScheduler.getInstance().schedule(sensorReadout);
+    m_DistanceSensor.printValues();
+    m_LineSensor.printValues();
   }
 
   /**
