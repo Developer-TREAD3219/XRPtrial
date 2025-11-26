@@ -1,10 +1,10 @@
 package frc.robot.subsystems;
-
+// Haven't used yet
 import javax.lang.model.util.ElementScanner14;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class LineSensor extends SubsystemBase{
 
     private AnalogInput leftLineSensor;
@@ -45,9 +45,11 @@ public void printValues() {
     updateValues(); // Ensure values are updated before printing
     
     //System.out.println("leftLineSensorValue = " + leftLineSensorint);
-    System.out.println("leftLineSensorValue = " + leftLineSensorVoltage);
+
     //System.out.println("rightLineSensorValue = " + rightLineSensorValue);
-}
+SmartDashboard.putNumber("leftLineSensorVoltage = ", leftLineSensorVoltage);
+SmartDashboard.putNumber("rightLineSensorVoltage = ", rightLineSensorVoltage);
+} 
 
     public void periodic (){
         printValues();

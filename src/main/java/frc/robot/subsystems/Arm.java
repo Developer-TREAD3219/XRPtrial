@@ -6,7 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.xrp.XRPServo;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Arm extends SubsystemBase {
   private final XRPServo m_armServo;
 
@@ -28,5 +28,6 @@ public class Arm extends SubsystemBase {
    */
   public void setAngle(double angleDeg) {
     m_armServo.setAngle(angleDeg);
+    SmartDashboard.putNumber("arm angle = ",m_armServo.getAngle());
   }
 }

@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+import frc.robot.commands.AutonomousLineDrive;
 //import frc.robot.commands.SensorReadout;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DistanceSensor;
@@ -89,10 +90,11 @@ public class RobotContainer {
     //     .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
     //     .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
-    // // Setup SmartDashboard options
-    // m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
-    // m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
-    // SmartDashboard.putData(m_chooser);
+    // Setup SmartDashboard options
+    m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
+    m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
+    m_chooser.addOption("Auto Line Drive", new AutonomousLineDrive(m_drivetrain, m_LineSensor, m_arm));
+    SmartDashboard.putData(m_chooser);
   }
 
   /**
